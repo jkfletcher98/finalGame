@@ -1,0 +1,132 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.8.3" pages="2">
+  <diagram name="Page-1" id="wryWthQXEFWfOGihrgYo">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-1" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="40" width="570" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-2" value="Play" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="uPYx8C1ctqHqFg4IaetA-1">
+          <mxGeometry x="50" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-3" value="Quit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="uPYx8C1ctqHqFg4IaetA-1">
+          <mxGeometry x="400" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-4" value="High Score: " style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="uPYx8C1ctqHqFg4IaetA-1">
+          <mxGeometry x="225" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-5" value="Sock Goblins" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="uPYx8C1ctqHqFg4IaetA-1">
+          <mxGeometry x="75" y="70" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uPYx8C1ctqHqFg4IaetA-6" value="&lt;div&gt;Protect your socks from the sock goblins&lt;/div&gt;&lt;div&gt;Collect as many as you can before time runs out&lt;/div&gt;&lt;div&gt;Bonus points for collecting pairs&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="uPYx8C1ctqHqFg4IaetA-1">
+          <mxGeometry x="115" y="160" width="340" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="V0lsbuwShtfDuIYuZZNV" name="Page-2">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-1" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="40" width="570" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-7" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="260" y="410" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-8" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="310" y="410" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-9" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="360" y="410" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-10" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="210" y="410" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-11" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="160" y="410" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-12" value="Timer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="480" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-15" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;rotation=90;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="485" y="-15" width="70" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-19" value="Laundry basket" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.half_circle" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="20" y="410" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-20" value="Inventory" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="240" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-21" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;bottom=0;fillColor=none;direction=south;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="150" y="340" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-22" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;right=0;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="10" y="340" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-23" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;top=0;bottom=0;fillColor=none;routingCenterX=-0.5;direction=south;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="90" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-24" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;bottom=0;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="90" y="250" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-26" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;top=0;bottom=0;fillColor=none;routingCenterX=-0.5;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="90" y="150" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-27" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;direction=north;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="60" y="90" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-29" value="sock" style="shape=or;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="30" y="290" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-31" value="Goblin" style="ellipse;whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="40" y="30" width="50" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-33" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;top=0;bottom=0;fillColor=none;routingCenterX=-0.5;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="210" y="250" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-34" value="Rough idea of what the map will look like" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="210" y="170" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-35" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="350" y="110" width="140" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-36" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;right=0;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="210" y="110" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-37" value="Goblin" style="ellipse;whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="160" y="285" width="50" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-38" value="sock" style="shape=or;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="450" y="292.5" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-39" value="sock" style="shape=or;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="350" y="60" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-40" value="Player" style="triangle;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="430" y="190" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-41" value="Score:" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="450" y="410" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-44" value="Goblins walk on a regular path" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="90" y="60" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-45" value="Socks appear randomly" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry y="250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-46" value="Player needs to return socks here" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="Wf1wk4NIbFKd96kbNfgz-1">
+          <mxGeometry x="82.5" y="400" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-42" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Wf1wk4NIbFKd96kbNfgz-43" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
