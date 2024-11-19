@@ -1,25 +1,21 @@
 "Sock Goblins"
 
-Scenes - Instructions, Game, Scoring
-Sprites - character, goblin, sock
+Scenes - Instructions, Game, Scoring(?)
 
-Character:
-  init
-    set character image
-    set size
-    set initial position
-    set move speed
-  process
-    create walk cycle
-    if up key pressed
-      add move speed to y axis
-      use back walk cycle
-    if down key if pressed
-      subtract move speed from y axis
-      use front walk cycle
-    if right key is pressed
-      add move speed to x axis
-      use right walk cycle
-    if left key is pressed
-      subtract move speed from x axis
-      use left walk cycle
+GAME
+Elements
+  - Character
+  - Goblins
+  - Timer
+  - Inventory
+  - Laundry basket
+  - Map walls
+  - Socks
+
+INSTRUCTIONS
+Elements
+  - Title
+  - Play button
+  - Quit button
+  - Instructions
+  - High score
