@@ -1,7 +1,7 @@
 "Sock Goblins"
 
 Scenes - Instructions, Game, Scoring
-Sprites - character, goblin, sock, sockPair, laundryBasket, inventoryBar
+Sprites - character, goblin, sock
 
 Character:
   init
