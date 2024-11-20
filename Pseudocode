@@ -7,8 +7,17 @@ GAME
     - Character
     - Goblins
     - Timer
-    - Map walls
+    - Wall
     - Socks
+
+  init
+    set floor image
+    create instance of Character -> character
+    create instances of Wall -> wall
+
+  process
+    if character collides with sock
+      
 
 INSTRUCTIONS
   Elements
@@ -24,6 +33,7 @@ Character
     assign size
     assign postion
     assign moveSpeed to 5
+
   process
     correction is (0, 0)
     if "w" is pressed
@@ -44,9 +54,15 @@ Character
       correction (-5, 0)
 
     if character collides with wall
-      moveSpeed gets 0
+      x gets correction(place 0)
+      y get correction(place 1)
 
 Wall
   init
-    assign image
-    assign size
+    set wall image
+    set size
+
+Sock
+  init
+    set sock image
+    set size
