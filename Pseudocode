@@ -15,6 +15,8 @@ GAME
     create instance of Character -> character
     create instances of Wall -> wall
     create instances of Socks -> sock
+    create timer
+    set start time to 30
 
   process
     if character collides with sock
@@ -22,6 +24,9 @@ GAME
       sock disappears
       if sock image matches previously collected sock
         add 5 to score
+
+    if timer is at 0
+      game ends
 
 INSTRUCTIONS
   Elements
