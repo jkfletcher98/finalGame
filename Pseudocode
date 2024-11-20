@@ -3,19 +3,50 @@
 Scenes - Instructions, Game, Scoring(?)
 
 GAME
-Elements
-  - Character
-  - Goblins
-  - Timer
-  - Inventory
-  - Laundry basket
-  - Map walls
-  - Socks
+  Elements
+    - Character
+    - Goblins
+    - Timer
+    - Map walls
+    - Socks
 
 INSTRUCTIONS
-Elements
-  - Title
-  - Play button
-  - Quit button
-  - Instructions
-  - High score
+  Elements
+    - Title
+    - Play button
+    - Quit button
+    - Instructions
+    - High score
+
+Character
+  init
+    assign image
+    assign size
+    assign postion
+    assign moveSpeed to 5
+  process
+    correction is (0, 0)
+    if "w" is pressed
+      add moveSpeed to y
+      use back walk cycle
+      correction (0, -5)
+    if "a" is pressed
+      subtract moveSpeed from x
+      use left walk cycle
+      correction (5, 0)
+    if "s" is pressed
+      subtract moveSpeed from y
+      use front walk cycle
+      correction (0, 5)
+    if "d" is pressed
+      add moveSpeed to x
+      use right walk cycle
+      correction (-5, 0)
+
+    if character collides with wall
+      moveSpeed gets 0
+
+Wall
+  init
+    assign image
+    assign size
