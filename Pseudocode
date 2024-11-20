@@ -14,10 +14,14 @@ GAME
     set floor image
     create instance of Character -> character
     create instances of Wall -> wall
+    create instances of Socks -> sock
 
   process
     if character collides with sock
-      
+      add 10 to score
+      sock disappears
+      if sock image matches previously collected sock
+        add 5 to score
 
 INSTRUCTIONS
   Elements
@@ -64,5 +68,8 @@ Wall
 
 Sock
   init
-    set sock image
+    set sock image list
     set size
+
+  process
+    position randomly generated - cannot be in same space as wall
