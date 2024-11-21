@@ -2,6 +2,14 @@
 
 Scenes - Instructions, Game, Scoring(?)
 
+INSTRUCTIONS
+  Elements
+    - Title
+    - Play button
+    - Quit button
+    - Instructions
+    - High score
+
 GAME
   Elements
     - Character
@@ -9,6 +17,7 @@ GAME
     - Timer
     - Wall
     - Socks
+    - Score
 
   init
     set floor image
@@ -24,6 +33,8 @@ GAME
     create timer
     set start time to 30
 
+    create lblTime
+
     create lblScore
     score is 0
 
@@ -34,19 +45,14 @@ GAME
       if sock image matches previously collected sock
         add 5 to score
 
+    if character collides with goblin
+      character pauses for 3 seconds (?)
+
     if goblin collides with sock
       sock disappears
 
     if timer is at 0
       game ends
-
-INSTRUCTIONS
-  Elements
-    - Title
-    - Play button
-    - Quit button
-    - Instructions
-    - High score
 
 Character
   init
@@ -132,3 +138,14 @@ Sock
 
   process
     position randomly generated - cannot be in same space as wall
+      #how do?
+
+lblTime
+  init
+    set text - Time: 30
+    set position
+
+lblScore
+  init
+    set text - Score: 0
+    set position
