@@ -12,11 +12,20 @@ GAME
 
   init
     set floor image
+
     create instance of Character -> character
+
     create instances of Wall -> wall
+
     create instances of Socks -> sock
+
+    create 2 instances of Goblin -> goblin
+    
     create timer
     set start time to 30
+
+    create lblScore
+    score is 0
 
   process
     if character collides with sock
@@ -24,6 +33,9 @@ GAME
       sock disappears
       if sock image matches previously collected sock
         add 5 to score
+
+    if goblin collides with sock
+      sock disappears
 
     if timer is at 0
       game ends
@@ -42,29 +54,71 @@ Character
     assign size
     assign postion
     assign moveSpeed to 5
+    set walk cycle basics (row, speed, starting column)
 
   process
+    set walking to false
     correction is (0, 0)
+
     if "w" is pressed
       add moveSpeed to y
       use back walk cycle
       correction (0, -5)
+      walking is true
     if "a" is pressed
       subtract moveSpeed from x
       use left walk cycle
       correction (5, 0)
+      walking is true
     if "s" is pressed
       subtract moveSpeed from y
       use front walk cycle
       correction (0, 5)
+      walking is true
     if "d" is pressed
       add moveSpeed to x
       use right walk cycle
       correction (-5, 0)
+      walking is true
+
+    if walking
+      use walk animation
+    else
+      use idle position
 
     if character collides with wall
       x gets correction(place 0)
       y get correction(place 1)
+      walking is false
+
+Goblin
+  init
+    set image
+    set size
+    set moveSpeed
+    set position
+    set walk cycle basics
+
+  process
+    correction is (0, 0)
+
+    if y is increasing
+      use back walk cycle
+      correction (0, -moveSpeed)
+    if y is decreasing
+      use front walk cycle
+      correction (0, moveSpeed)
+    if x is increasing
+      use right walk cycle
+      correction (-moveSpeed, 0)
+    if x is decreasing
+      use left walk cycle
+      correction (moveSpeed, 0)
+
+    if goblin collides with wall
+      x gets correction (place 0)
+      y get correction (place 1)
+      walk cycle changes row
 
 Wall
   init
