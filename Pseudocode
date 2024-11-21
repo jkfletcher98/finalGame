@@ -1,6 +1,6 @@
 "Sock Goblins"
 
-Scenes - Instructions, Game, Scoring(?)
+Scenes - Instructions, Game
 
 INSTRUCTIONS
   Elements
@@ -8,7 +8,40 @@ INSTRUCTIONS
     - Play button
     - Quit button
     - Instructions
-    - High score
+
+  init
+    set background image
+    set response to "Play"
+
+    create lblTitle
+    set text "Sock Goblins!"
+    set position
+    set size
+
+    create Instructions MultiLabel
+    Add text lines with instructions
+      "The sock goblins are at it again!
+        Collect your socks before they can steal them.
+        Used WASD to move."
+    set position
+    set size
+
+    create btnPlay
+    set text to "Play"
+    set position
+
+    create btnQuit
+    set text to "Quit"
+    set position
+
+  process
+    if btnPlay pressed
+      set response to play
+      start game
+      end instructions
+    if btnQuit is pressed
+      set response to quit
+      end instructions
 
 GAME
   Elements
