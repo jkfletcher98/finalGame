@@ -8,6 +8,7 @@ INSTRUCTIONS
     - Play button
     - Quit button
     - Instructions
+    - Previous score
 
   init
     set background image
@@ -33,6 +34,11 @@ INSTRUCTIONS
     create btnQuit
     set text to "Quit"
     set position
+
+    prevTime gets time
+	  Create LblTime
+	  Set text “Previous Time: {prevTime}”
+	  Set location
 
   process
     if btnPlay pressed
@@ -147,12 +153,12 @@ Goblin
   process
     correction is (0, 0)
 
-    if y is increasing
-      use back walk cycle
-      correction (0, -moveSpeed)
     if y is decreasing
-      use front walk cycle
+      use back walk cycle
       correction (0, moveSpeed)
+    if y is increasing
+      use front walk cycle
+      correction (0, -moveSpeed)
     if x is increasing
       use right walk cycle
       correction (-moveSpeed, 0)
