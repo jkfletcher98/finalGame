@@ -63,6 +63,8 @@ GAME
     create instances of Socks -> sock
 
     create 2 instances of Goblin -> goblin
+    create 2 point lists
+    create 2 intances of Path -> path
     
     create timer
     set start time to 30
@@ -76,11 +78,11 @@ GAME
     if character collides with sock
       add 10 to score
       resets
-      if sock image matches previously collected sock
+      if image is already present in inventory
         add 5 to score
-        display sockPair
+        display sockPair for 2 seconds
       else
-        sock added to inventory
+        sock image appears in assigned space
 
     if character collides with goblin
       character pauses for 3 seconds (?)
@@ -162,6 +164,28 @@ Goblin
       x gets correction (place 0)
       y get correction (place 1)
       walk cycle changes row
+
+Path
+  init
+    set sprite
+    set pointList
+    set counter to 0
+    assign speed
+    create currentPoint
+    create nextPoint
+
+  turnToNextPoint
+    currentPoints become nextPoint
+    counter goes up 1
+    if counter reaches the end of the point list
+      counter is 0
+
+  setPoints
+    assign pointList
+
+  process
+    if sprite is within 15 pixels of nextPoint
+      turnToNextPoint
 
 Wall
   init
