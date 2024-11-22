@@ -50,6 +50,7 @@ GAME
     - Timer
     - Wall
     - Socks
+    - Inventory
     - Score
 
   init
@@ -74,15 +75,18 @@ GAME
   process
     if character collides with sock
       add 10 to score
-      sock disappears
+      resets
       if sock image matches previously collected sock
         add 5 to score
+        display sockPair
+      else
+        sock added to inventory
 
     if character collides with goblin
       character pauses for 3 seconds (?)
 
     if goblin collides with sock
-      sock disappears
+      sock resets
 
     if timer is at 0
       game ends
@@ -169,9 +173,21 @@ Sock
     set sock image list
     set size
 
-  process
+  resest
     position randomly generated - cannot be in same space as wall
       #how do?
+
+Pairs
+  init
+    set sockPair list
+    set size 
+    set position
+
+Inventory
+  init
+    set image
+    set size
+    set position
 
 lblTime
   init
@@ -182,3 +198,16 @@ lblScore
   init
     set text - Score: 0
     set position
+
+main
+  set keepGoing to True
+  While keepGoing
+    create instance of Instructions -> instructions
+    start instructions
+    when instructions ends,
+    if response is "play"
+      create instance of Game -> game
+      start game
+    else
+      keepGoing is false
+      exit program
