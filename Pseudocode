@@ -36,9 +36,9 @@ INSTRUCTIONS
     set position
 
     prevTime gets time
-	  Create LblTime
-	  Set text “Previous Time: {prevTime}”
-	  Set location
+	Create LblTime
+	Set text “Previous Time: {prevTime}”
+	Set location
 
   process
     if btnPlay pressed
@@ -54,7 +54,7 @@ GAME
     - Character
     - Goblins
     - Timer
-    - Wall
+    - Tiles
     - Socks
     - Inventory
     - Score
@@ -63,8 +63,6 @@ GAME
     set floor image
 
     create instance of Character -> character
-
-    create instances of Wall -> wall
 
     create instances of Socks -> sock
 
@@ -171,32 +169,20 @@ Goblin
       y get correction (place 1)
       walk cycle changes row
 
-Path
-  init
-    set sprite
-    set pointList
-    set counter to 0
-    assign speed
-    create currentPoint
-    create nextPoint
+Tiles
+	init
+		create a list of tile images
+		make a list of state names
+		set size
+		set values to each state (floor gets 0, wall gets 1)
+		set a default state (floor)
 
-  turnToNextPoint
-    currentPoints become nextPoint
-    counter goes up 1
-    if counter reaches the end of the point list
-      counter is 0
+	setState
+		state gets state
+		copyImage from image list
 
-  setPoints
-    assign pointList
-
-  process
-    if sprite is within 15 pixels of nextPoint
-      turnToNextPoint
-
-Wall
-  init
-    set wall image
-    set size
+	process
+		if tile collides with character
 
 Sock
   init
