@@ -60,7 +60,12 @@ GAME
     - Score
 
   init
-    set floor image
+    create tileset
+
+		set number of rows
+		set number of columns
+
+		loadMap
 
     create instance of Character -> character
 
@@ -75,6 +80,11 @@ GAME
 
     create lblScore
     score is 0
+
+	loadMap
+		create dictionary of tiles
+
+		assign the correct tile to each number in the dictionary
 
   process
     if character collides with sock
@@ -100,6 +110,7 @@ Character
     assign image
     assign size
     assign postion
+		set tileOver to floor
     assign moveSpeed to 5
     set walk cycle basics (row, speed, starting column)
 
@@ -133,7 +144,7 @@ Character
     else
       use idle position
 
-    if character collides with wall
+    if tileOver is wall
       x gets correction(place 0)
       y get correction(place 1)
       walking is false
