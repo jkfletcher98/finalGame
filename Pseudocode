@@ -111,7 +111,7 @@ Character
     assign size
     assign postion
 		set tileOver to floor
-    assign moveSpeed to 5
+    assign moveSpeed to 3
     set walk cycle basics (row, speed, starting column)
 
   process
@@ -121,22 +121,22 @@ Character
     if "w" is pressed
       add moveSpeed to y
       use back walk cycle
-      correction (0, -5)
+      correction (0, -3)
       walking is true
     if "a" is pressed
       subtract moveSpeed from x
       use left walk cycle
-      correction (5, 0)
+      correction (3, 0)
       walking is true
     if "s" is pressed
       subtract moveSpeed from y
       use front walk cycle
-      correction (0, 5)
+      correction (0, 3)
       walking is true
     if "d" is pressed
       add moveSpeed to x
       use right walk cycle
-      correction (-5, 0)
+      correction (-3, 0)
       walking is true
 
     if walking
@@ -144,7 +144,7 @@ Character
     else
       use idle position
 
-    if tileOver is wall
+    if tileState is wall
       x gets correction(place 0)
       y get correction(place 1)
       walking is false
