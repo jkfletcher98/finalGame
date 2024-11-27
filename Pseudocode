@@ -192,6 +192,7 @@ Tiles
 
 	process
 		if tile collides with character
+			figure out what the tile state is
 
 Sock
   init
