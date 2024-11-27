@@ -67,8 +67,6 @@ GAME
     create instances of Socks -> sock
 
     create 2 instances of Goblin -> goblin
-    create 2 point lists
-    create 2 intances of Path -> path
     
     create timer
     set start time to 30
