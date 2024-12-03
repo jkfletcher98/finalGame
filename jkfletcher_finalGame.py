@@ -11,6 +11,8 @@ class Game(simpleGE.Scene):
         
         self.character = Character(self)
         
+        self.lblOutput = LblOutput()
+        
         self.numSocks = 4
         self.socks = []
         for i in range(self.numSocks):
@@ -23,7 +25,7 @@ class Game(simpleGE.Scene):
         
         self.loadMap()
         
-        self.sprites = [self.character, self.tileset, self.socks]
+        self.sprites = [self.tileset, self.socks, self.character, self.lblOutput]
         
     def loadMap(self):
         map = [
@@ -60,7 +62,7 @@ class Game(simpleGE.Scene):
 class Character(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.walkAnim =  simpleGE.SpriteSheet("character-spreadsheet.png", (64, 64), 4, 9, 0.1)
+        self.walkAnim = simpleGE.SpriteSheet("character-spreadsheet.png", (64, 64), 4, 9, 0.1)
         
         self.walkAnim.startCol = 1
         self.animRow = 2
@@ -110,12 +112,14 @@ class Tile(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         self.images = [
-            pygame.image.load("woodenfloor.png"),
+            pygame.image.load("floor_tiles.png"),
             pygame.image.load("default_tiles.png")]
         
         self.stateName = ["floor", "wall"]
-        
-        self.setSize(16, 16)
+      
+        for i in range(0, 1):
+           self.images[i] = pygame.transform.scale(self.images[i], (32, 32))
+      
         self.FLOOR = 0
         self.WALL = 1
         self.state = self.FLOOR
@@ -131,13 +135,32 @@ class Tile(simpleGE.Sprite):
             self.scene.character.tilestate = self.state
             rowCol = f"{self.tilePos[0]}, {self.tilePos[1]}"
             
+            self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
+
+#FOR TESTING
+class LblOutput(simpleGE.Label):
+    def __init__(self):
+        super().__init__()
+        self.center = (320, 25)
+        self.text = "current tile: "
+        self.fgColor = "white"
+        self.bgColor = "black"
+        self.clearBlack = True
+            
 class Sock(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.sockImages = ["sock-0.png", "sock-1.png", "sock-2.png", "sock-3.png"]
-        self.setSize = (8, 8)
+        self.setSize(48, 48)
+        self.sockImages = [pygame.image.load("sock-0.png"),
+                           pygame.image.load("sock-1.png"),
+                           pygame.image.load("sock-2.png"),
+                           pygame.image.load("sock-3.png")]
+        
+        for i in range(0, 3):
+            self.sockImages[i] = pygame.transform.scale(self.sockImages[i], (48, 48))
+        
         self.getImage = random.randrange(3)
-        self.setImage(self.sockImages[self.getImage])
+        self.copyImage(self.sockImages[self.getImage])
         self.y = random.randint(0, self.screenHeight)
         self.x = random.randint(0, self.screenWidth)
         
