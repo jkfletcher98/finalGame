@@ -72,10 +72,14 @@ class Character(simpleGE.Sprite):
         self.tileState = 0
         
     def process(self):
+        
+        walls = [x for x in self.scene.tileset if x.state == 1]
+        
         self.correction = (0, 0)
         self.dx = 0
         self.dy = 0
-        walking = False
+        walking = False     
+       
         if self.isKeyPressed(pygame.K_w):
             self.animRow = 0
             self.dy = -self.moveSpeed
@@ -96,17 +100,16 @@ class Character(simpleGE.Sprite):
             self.dx = self.moveSpeed
             self.correction = (-self.moveSpeed, 0)
             walking = True
-            
+         
+        for wall in self.scene.walls:
+            if self.collidesWith(wall):
+                self.x += self.correction[0]
+                self.y += self.correction[1]
+                
         if walking:
             self.copyImage(self.walkAnim.getNext(self.animRow))
         else:
-            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))
-            
-        if self.tileState == 1:
-            self.x = self.correction[0]
-            self.y = self.correction[1]
-            walking = False
-            
+            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))        
             
 class Tile(simpleGE.Sprite):
     def __init__(self, scene):
@@ -127,16 +130,17 @@ class Tile(simpleGE.Sprite):
     def setState(self, state):
         self.state = state
         self.copyImage(self.images[state])
-        
+    
     def process(self):
         if self.collidesWith(self.scene.character):
             stateInfo = self.stateName[self.state]
             self.scene.character.tileOver = self.tilePos
-            self.scene.character.tilestate = self.state
+            self.scene.character.tileState = self.state
+        
             rowCol = f"{self.tilePos[0]}, {self.tilePos[1]}"
             
             self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
-
+        
 #FOR TESTING
 class LblOutput(simpleGE.Label):
     def __init__(self):
