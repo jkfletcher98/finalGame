@@ -11,6 +11,13 @@ class Game(simpleGE.Scene):
         
         self.character = Character(self)
         
+        self.lblOutput = LblOutput()
+        
+        self.numSocks = 4
+        self.socks = []
+        for i in range(self.numSocks):
+            self.socks.append(Sock(self))
+        
         self.tileset = []
         
         self.ROWS = 15
@@ -18,7 +25,7 @@ class Game(simpleGE.Scene):
         
         self.loadMap()
         
-        self.sprites = [self.character, self.tileset]
+        self.sprites = [self.tileset, self.socks, self.character, self.lblOutput]
         
     def loadMap(self):
         map = [
@@ -51,11 +58,16 @@ class Game(simpleGE.Scene):
                 newTile.x = xPos
                 newTile.y = yPos
                 self.tileset[row].append(newTile)
+                
+    def process(self):
+        for sock in self.socks:
+            if self.character.collidesWith(sock):
+                sock.reset()
         
 class Character(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.walkAnim =  simpleGE.SpriteSheet("character-spreadsheet.png", (64, 64), 4, 9, 0.1)
+        self.walkAnim = simpleGE.SpriteSheet("character-spreadsheet.png", (64, 64), 4, 9, 0.1)
         
         self.walkAnim.startCol = 1
         self.animRow = 2
@@ -65,10 +77,14 @@ class Character(simpleGE.Sprite):
         self.tileState = 0
         
     def process(self):
+        
+        #walls = [x for x in self.scene.tileset if x.state == 1]
+        
         self.correction = (0, 0)
         self.dx = 0
         self.dy = 0
-        walking = False
+        walking = False     
+       
         if self.isKeyPressed(pygame.K_w):
             self.animRow = 0
             self.dy = -self.moveSpeed
@@ -89,28 +105,29 @@ class Character(simpleGE.Sprite):
             self.dx = self.moveSpeed
             self.correction = (-self.moveSpeed, 0)
             walking = True
-            
+         
+        #for wall in self.scene.walls:
+            #if self.collidesWith(wall):
+                #self.x += self.correction[0]
+                #self.y += self.correction[1]
+                
         if walking:
             self.copyImage(self.walkAnim.getNext(self.animRow))
         else:
-            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))
-            
-        if self.tileState == 1:
-            self.x = self.correction[0]
-            self.y = self.correction[1]
-            walking = False
-            
+            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))        
             
 class Tile(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         self.images = [
-            pygame.image.load("woodenfloor.png"),
+            pygame.image.load("floor_tiles.png"),
             pygame.image.load("default_tiles.png")]
         
         self.stateName = ["floor", "wall"]
-        
-        self.setSize(16, 16)
+      
+        for i in range(0, 1):
+           self.images[i] = pygame.transform.scale(self.images[i], (32, 32))
+      
         self.FLOOR = 0
         self.WALL = 1
         self.state = self.FLOOR
@@ -118,13 +135,49 @@ class Tile(simpleGE.Sprite):
     def setState(self, state):
         self.state = state
         self.copyImage(self.images[state])
-        
+    
     def process(self):
         if self.collidesWith(self.scene.character):
             stateInfo = self.stateName[self.state]
             self.scene.character.tileOver = self.tilePos
-            self.scene.character.tilestate = self.state
+            self.scene.character.tileState = self.state
+        
             rowCol = f"{self.tilePos[0]}, {self.tilePos[1]}"
+            
+            self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
+        
+#FOR TESTING
+class LblOutput(simpleGE.Label):
+    def __init__(self):
+        super().__init__()
+        self.center = (320, 25)
+        self.text = "current tile: "
+        self.fgColor = "white"
+        self.bgColor = "black"
+        self.clearBlack = True
+            
+class Sock(simpleGE.Sprite):
+    def __init__(self, scene):
+        super().__init__(scene)
+        self.setSize(48, 48)
+        self.sockImages = [pygame.image.load("sock-0.png"),
+                           pygame.image.load("sock-1.png"),
+                           pygame.image.load("sock-2.png"),
+                           pygame.image.load("sock-3.png")]
+        
+        for i in range(0, 4):
+            self.sockImages[i] = pygame.transform.scale(self.sockImages[i], (48, 48))
+            
+        self.reset()
+        
+    def reset(self):
+        self.getImage = random.randrange(4)
+        self.copyImage(self.sockImages[self.getImage])
+        self.y = random.randint(0, self.screenHeight)
+        self.x = random.randint(0, self.screenWidth)
+        
+#class lblScore(simpleGE.Label):
+    #def __init__(self)
         
 def main():
     game = Game()

@@ -505,6 +505,7 @@ class Sprite(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (newX, newY))
         self.imageMaster = self.image
         self.rect = self.image.get_rect()
+
         
     def setImage (self, imageFile):
         """ loads the given file name as the master image
