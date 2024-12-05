@@ -8,26 +8,35 @@ import random, pygame, simpleGE
 class Game(simpleGE.Scene):
     def __init__(self):
         super().__init__()
+        #temporary until i figure out the map
+        self.background.fill(pygame.Color("gray"))
         
         self.character = Character(self)
         
-        self.lblOutput = LblOutput()
+        #self.lblOutput = LblOutput()
         
         self.numSocks = 4
         self.socks = []
         for i in range(self.numSocks):
             self.socks.append(Sock(self))
         
-        self.tileset = []
+        #self.tileset = []
         
-        self.ROWS = 15
-        self.COLS = 20
+        #self.ROWS = 15
+        #elf.COLS = 20
         
-        self.loadMap()
+        #self.loadMap()
         
-        self.sprites = [self.tileset, self.socks, self.character, self.lblOutput]
+        self.lblScore = LblScore()
+        self.score = 0
         
-    def loadMap(self):
+        self.timer = simpleGE.Timer()
+        self.timer.totalTime = 30
+        self.lblTime = LblTime()
+        
+        self.sprites = [self.socks, self.character, self.lblScore, self.lblTime]
+        
+    """def loadMap(self):
         map = [
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1],
@@ -59,10 +68,20 @@ class Game(simpleGE.Scene):
                 newTile.y = yPos
                 self.tileset[row].append(newTile)
                 
+                """
+                
     def process(self):
         for sock in self.socks:
             if self.character.collidesWith(sock):
                 sock.reset()
+                self.score += 10
+                self.lblScore.text = f"Score: {self.score}"
+                
+        self.lblTime.text = f"Time: {self.timer.getTimeLeft():.0f}"
+        
+        if self.timer.getTimeLeft() < 0:
+            print(f"Score: {self.score}")
+            self.stop()
         
 class Character(simpleGE.Sprite):
     def __init__(self, scene):
@@ -116,7 +135,7 @@ class Character(simpleGE.Sprite):
         else:
             self.copyImage(self.walkAnim.getCellImage(0, self.animRow))        
             
-class Tile(simpleGE.Sprite):
+"""class Tile(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         self.images = [
@@ -125,7 +144,7 @@ class Tile(simpleGE.Sprite):
         
         self.stateName = ["floor", "wall"]
       
-        for i in range(0, 1):
+        for i in range(0, 2):
            self.images[i] = pygame.transform.scale(self.images[i], (32, 32))
       
         self.FLOOR = 0
@@ -144,17 +163,19 @@ class Tile(simpleGE.Sprite):
         
             rowCol = f"{self.tilePos[0]}, {self.tilePos[1]}"
             
-            self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
+            """
+            
+            #self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
         
 #FOR TESTING
-class LblOutput(simpleGE.Label):
-    def __init__(self):
-        super().__init__()
-        self.center = (320, 25)
-        self.text = "current tile: "
-        self.fgColor = "white"
-        self.bgColor = "black"
-        self.clearBlack = True
+#class LblOutput(simpleGE.Label):
+    #def __init__(self):
+        #super().__init__()
+        #self.center = (320, 25)
+        #self.text = "current tile: "
+        #self.fgColor = "white"
+        #self.bgColor = "black"
+        #self.clearBlack = True
             
 class Sock(simpleGE.Sprite):
     def __init__(self, scene):
@@ -173,8 +194,20 @@ class Sock(simpleGE.Sprite):
     def reset(self):
         self.getImage = random.randrange(4)
         self.copyImage(self.sockImages[self.getImage])
-        self.y = random.randint(0, self.screenHeight)
-        self.x = random.randint(0, self.screenWidth)
+        self.y = random.randint(48, 432)
+        self.x = random.randint(48, 592)
+        
+class LblScore(simpleGE.Label):
+    def __init__(self):
+        super().__init__()
+        self.text = "Score: 0"
+        self.center = (560, 15)
+        
+class LblTime(simpleGE.Label):
+    def __init__(self):
+        super().__init__()
+        self.text = "Time: 30"
+        self.center = (80, 15)
         
 def main():
     game = Game()
