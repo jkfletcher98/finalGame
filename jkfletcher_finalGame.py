@@ -58,6 +58,11 @@ class Game(simpleGE.Scene):
                 newTile.x = xPos
                 newTile.y = yPos
                 self.tileset[row].append(newTile)
+                
+    def process(self):
+        for sock in self.socks:
+            if self.character.collidesWith(sock):
+                sock.reset()
         
 class Character(simpleGE.Sprite):
     def __init__(self, scene):
@@ -73,7 +78,7 @@ class Character(simpleGE.Sprite):
         
     def process(self):
         
-        walls = [x for x in self.scene.tileset if x.state == 1]
+        #walls = [x for x in self.scene.tileset if x.state == 1]
         
         self.correction = (0, 0)
         self.dx = 0
@@ -101,10 +106,10 @@ class Character(simpleGE.Sprite):
             self.correction = (-self.moveSpeed, 0)
             walking = True
          
-        for wall in self.scene.walls:
-            if self.collidesWith(wall):
-                self.x += self.correction[0]
-                self.y += self.correction[1]
+        #for wall in self.scene.walls:
+            #if self.collidesWith(wall):
+                #self.x += self.correction[0]
+                #self.y += self.correction[1]
                 
         if walking:
             self.copyImage(self.walkAnim.getNext(self.animRow))
@@ -160,10 +165,13 @@ class Sock(simpleGE.Sprite):
                            pygame.image.load("sock-2.png"),
                            pygame.image.load("sock-3.png")]
         
-        for i in range(0, 3):
+        for i in range(0, 4):
             self.sockImages[i] = pygame.transform.scale(self.sockImages[i], (48, 48))
+            
+        self.reset()
         
-        self.getImage = random.randrange(3)
+    def reset(self):
+        self.getImage = random.randrange(4)
         self.copyImage(self.sockImages[self.getImage])
         self.y = random.randint(0, self.screenHeight)
         self.x = random.randint(0, self.screenWidth)
