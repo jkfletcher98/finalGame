@@ -5,11 +5,57 @@
 
 import random, pygame, simpleGE
 
+class Instructions(simpleGE.Scene):
+    def __init__(self, score):
+        super().__init__()
+        self.background.fill(pygame.Color("light blue"))
+        
+        self.response = "Play"
+        
+        self.title = simpleGE.Label()
+        self.title.text = "SOCK GOBLINS!!!"
+        self.title.center = (320, 60)
+        self.title.size = (250, 30)
+        
+        self.lblInstructions = simpleGE.MultiLabel()
+        self.lblInstructions.textLines = [
+            "The Sock Goblins are at it again!",
+            "Collect your socks before you lose them!",
+            "Use WASD to move."
+            ]
+                                        
+        self.lblInstructions.center = (320, 240)
+        self.lblInstructions.size = (500, 250)
+        
+        self.btnPlay = simpleGE.Button()
+        self.btnPlay.text = "Play"
+        self.btnPlay.center = (100, 400)
+        
+        self.btnQuit = simpleGE.Button()
+        self.btnQuit.text = "Quit"
+        self.btnQuit.center = (550, 400)
+        
+        self.prevScore = score
+        self.prevScore = simpleGE.Label()
+        self.prevScore.text = f"Previous Score: {score}"
+        self.prevScore.center = (320, 400)
+        self.prevScore.size = (250, 30)
+        
+        self.sprites = [self.title, self.lblInstructions, self.btnPlay, self.btnQuit, self.prevScore]
+        
+    def process(self):
+        if self.btnQuit.clicked:
+            self.response = "Quit"
+            self.stop()
+        if self.btnPlay.clicked:
+            self.reponse = "Play"
+            self.stop()
+
 class Game(simpleGE.Scene):
     def __init__(self):
         super().__init__()
         #temporary until i figure out the map
-        self.background.fill(pygame.Color("gray"))
+        self.background.fill(pygame.Color("light blue"))
         
         self.character = Character(self)
         
@@ -79,7 +125,7 @@ class Game(simpleGE.Scene):
                 
         self.lblTime.text = f"Time: {self.timer.getTimeLeft():.0f}"
         
-        if self.timer.getTimeLeft() < 0:
+        if self.timer.getTimeLeft() <= 0:
             print(f"Score: {self.score}")
             self.stop()
         
@@ -133,8 +179,10 @@ class Character(simpleGE.Sprite):
         if walking:
             self.copyImage(self.walkAnim.getNext(self.animRow))
         else:
-            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))        
+            self.copyImage(self.walkAnim.getCellImage(0, self.animRow))
             
+#I couldn't get this to work quite right
+#so I decided to just focus on cleaning up the visuals
 """class Tile(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
@@ -210,8 +258,18 @@ class LblTime(simpleGE.Label):
         self.center = (80, 15)
         
 def main():
-    game = Game()
-    game.start()
+    keepGoing = True
+    score = 0
+    while keepGoing:
+        instructions = Instructions(score)
+        instructions.start()
+        if instructions.response == "Play":
+            game = Game()
+            game.start()
+            score = game.score
+        else:
+            keepGoing = False
+            exit()
     
 if __name__ == "__main__":
     main()
