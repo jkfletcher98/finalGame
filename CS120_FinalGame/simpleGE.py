@@ -885,6 +885,7 @@ class SpriteSheet():
         self.animCol = 0
         self.timer = Timer()
         self.startCol = 0
+        self.outputSize = self.cellSize
 
         self.animImage = pygame.image.load(self.imageFileName)
         self.animImage.convert_alpha()
@@ -902,7 +903,7 @@ class SpriteSheet():
         sourceRect = pygame.Rect(cellX, cellY, cellWidth, cellHeight)
         
         imgOut.blit(self.animImage, (0, 0), sourceRect)
-
+        imgOut = pygame.transform.scale(imgOut, self.outputSize)
         return(imgOut)
 
     def getNext(self, animRow):
