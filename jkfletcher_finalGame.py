@@ -55,7 +55,7 @@ class Game(simpleGE.Scene):
     def __init__(self):
         super().__init__()
         #temporary until i figure out the map
-        self.background.fill(pygame.Color("light blue"))
+        #self.background.fill(pygame.Color("light blue"))
         
         self.character = Character(self)
         
@@ -66,12 +66,12 @@ class Game(simpleGE.Scene):
         for i in range(self.numSocks):
             self.socks.append(Sock(self))
         
-        #self.tileset = []
+        self.tileset = []
         
-        #self.ROWS = 15
-        #elf.COLS = 20
+        self.ROWS = 15
+        self.COLS = 20
         
-        #self.loadMap()
+        self.loadMap()
         
         self.lblScore = LblScore()
         self.score = 0
@@ -80,9 +80,9 @@ class Game(simpleGE.Scene):
         self.timer.totalTime = 30
         self.lblTime = LblTime()
         
-        self.sprites = [self.socks, self.character, self.lblScore, self.lblTime]
+        self.sprites = [self.tileset, self.socks, self.character, self.lblScore, self.lblTime]
         
-    """def loadMap(self):
+    def loadMap(self):
         map = [
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1],
@@ -114,7 +114,7 @@ class Game(simpleGE.Scene):
                 newTile.y = yPos
                 self.tileset[row].append(newTile)
                 
-                """
+                
                 
     def process(self):
         for sock in self.socks:
@@ -183,7 +183,7 @@ class Character(simpleGE.Sprite):
             
 #I couldn't get this to work quite right
 #so I decided to just focus on cleaning up the visuals
-"""class Tile(simpleGE.Sprite):
+class Tile(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         self.images = [
@@ -211,7 +211,7 @@ class Character(simpleGE.Sprite):
         
             rowCol = f"{self.tilePos[0]}, {self.tilePos[1]}"
             
-            """
+            
             
             #self.scene.lblOutput.text = f"{stateInfo} {rowCol}"
         
